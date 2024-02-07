@@ -1,16 +1,35 @@
 from prometheus_client import start_http_server, Gauge, Counter, Enum
+import os
+import sys
 import requests
 import time
 import json
+import yaml
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+
+CONFIG_FILE = os.getenv("CONFIG_FILE","/powerstore-config/config")
+config = dict()
+with open(CONFIG_FILE, "r") as stream:
+    try:
+        config = yaml.safe_load(stream)
+        print(config['arrays'][0]['endpoint'])
+
+    except yaml.YAMLError as exc:
+        print(exc)
+        sys.exit(1)
+
 ### Adjust this section to your environment
-baseurl = "https://10.1.1.1/api/rest" # Use the IP of your PowerStore
-username = "user"
-password = "password"
+try:
+    baseurl = config['arrays'][0]['endpoint'] # Use the IP of your PowerStore
+    username = config['arrays'][0]['username']
+    password = config['arrays'][0]['password']
+except TypeError:
+    sys.exit(1)
 interval = "Five_Mins" #Five_Mins, One_Hour or One_Day. Don't use Twenty_Sec with this script, because it uses different schema
 headers = {"Content-type": "application/json"}
+
 
 # Create Prometheus metrics
 CAPACITY_USED = Gauge('cap_used', 'Capacity used in GB')
@@ -296,8 +315,8 @@ def calculate_health(health_items):
 
 if __name__ == '__main__':
     # Start up the server to expose the metrics.
-    start_http_server(8000)
-    print("Point your browser to 'http://<your_ip>:8000/metrics' to see the metrics ...")
+    start_http_server(9090)
+    print("Listening on http://0.0.0.0:9090/metrics' to see the metrics ...")
 
     while True:
         print("Collecting now ... ", end="", flush=True)
