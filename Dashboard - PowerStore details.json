@@ -154,7 +154,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "appliance_iops_read{instance=\"10.10.10.10:8000\"}",
+          "expr": "appliance_iops_read{}",
           "interval": "",
           "legendFormat": "Read",
           "refId": "A"
@@ -165,7 +165,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "appliance_iops_write{instance=\"10.10.10.10:8000\"}",
+          "expr": "appliance_iops_write{}",
           "hide": false,
           "interval": "",
           "legendFormat": "Write",
@@ -177,7 +177,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "appliance_iops_read{instance=\"10.10.10.10:8000\"} + appliance_iops_write{instance=\"10.10.10.10:8000\"}",
+          "expr": "appliance_iops_read{} + appliance_iops_write{}",
           "hide": false,
           "interval": "",
           "legendFormat": "Total",
@@ -252,7 +252,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "cap_used{instance=\"10.10.10.10:8000\"} * 100 / cap_total{instance=\"10.10.10.10:8000\"}",
+          "expr": "cap_used{} * 100 / cap_total{}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -340,7 +340,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "appliance_bandwidth_read{instance=\"10.10.10.10:8000\"} /1048576",
+          "expr": "appliance_bandwidth_read{} /1048576",
           "interval": "",
           "legendFormat": "Read ",
           "refId": "A"
@@ -351,7 +351,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "appliance_bandwidth_write{instance=\"10.10.10.10:8000\"} /1048576",
+          "expr": "appliance_bandwidth_write{} /1048576",
           "hide": false,
           "interval": "",
           "legendFormat": "Write",
@@ -363,7 +363,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "(appliance_bandwidth_read{instance=\"10.10.10.10:8000\"} + appliance_bandwidth_write{instance=\"10.10.10.10:8000\"}) /1048576",
+          "expr": "(appliance_bandwidth_read{} + appliance_bandwidth_write{}) /1048576",
           "hide": false,
           "interval": "",
           "legendFormat": "Total",
@@ -426,7 +426,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "data_reduction{instance=\"10.10.10.10:8000\"}",
+          "expr": "data_reduction{}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -488,7 +488,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "cap_total{instance=\"10.10.10.10:8000\"} / 1099511627776",
+          "expr": "cap_total{} / 1099511627776",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -595,7 +595,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_iops_read{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"}",
+          "expr": "vol_iops_read{vol_name=~\"$volume_name\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{vol_name}}",
@@ -687,7 +687,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_iops_write{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"}",
+          "expr": "vol_iops_write{vol_name=~\"$volume_name\"}",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -749,7 +749,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "(cap_total{instance=\"10.10.10.10:8000\"} - cap_used{instance=\"10.10.10.10:8000\"}) / 1099511627776",
+          "expr": "(cap_total{} - cap_used{}) / 1099511627776",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -840,7 +840,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_bandwith_read{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} /1048576",
+          "expr": "vol_bandwith_read{vol_name=~\"$volume_name\"} /1048576",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -931,7 +931,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_bandwidth_write{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} /1048576",
+          "expr": "vol_bandwidth_write{vol_name=~\"$volume_name\"} /1048576",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1022,7 +1022,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_latency_read{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} / 1000",
+          "expr": "vol_latency_read{vol_name=~\"$volume_name\"} / 1000",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1113,7 +1113,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_latency_write{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} / 1000",
+          "expr": "vol_latency_write{vol_name=~\"$volume_name\"} / 1000",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1204,7 +1204,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_iosize_read{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} /1024",
+          "expr": "vol_iosize_read{vol_name=~\"$volume_name\"} /1024",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1295,7 +1295,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "vol_iosize_write{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} /1024",
+          "expr": "vol_iosize_write{vol_name=~\"$volume_name\"} /1024",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1386,7 +1386,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "round(vol_latency_read{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} * vol_iops_read{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} /1000)",
+          "expr": "round(vol_latency_read{vol_name=~\"$volume_name\"} * vol_iops_read{vol_name=~\"$volume_name\"} /1000)",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1477,7 +1477,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "round(vol_latency_write{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} * vol_iops_write{instance=\"10.10.10.10:8000\",vol_name=~\"$volume_name\"} /1000)",
+          "expr": "round(vol_latency_write{vol_name=~\"$volume_name\"} * vol_iops_write{vol_name=~\"$volume_name\"} /1000)",
           "interval": "",
           "legendFormat": "{{vol_name}}",
           "refId": "A"
@@ -1584,7 +1584,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "fc_iops_read{instance=\"10.10.10.10:8000\",fc_name=~\"$fc_port_name\"}",
+          "expr": "fc_iops_read{fc_name=~\"$fc_port_name\"}",
           "interval": "",
           "legendFormat": "{{fc_name}}",
           "refId": "A"
@@ -1675,7 +1675,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "fc_iops_write{instance=\"10.10.10.10:8000\",fc_name=~\"$fc_port_name\"}",
+          "expr": "fc_iops_write{fc_name=~\"$fc_port_name\"}",
           "interval": "",
           "legendFormat": "{{fc_name}}",
           "refId": "A"
@@ -1766,7 +1766,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "fc_bandwitdh_read{instance=\"10.10.10.10:8000\",fc_name=~\"$fc_port_name\"} / 1048576",
+          "expr": "fc_bandwitdh_read{fc_name=~\"$fc_port_name\"} / 1048576",
           "interval": "",
           "legendFormat": "{{fc_name}}",
           "refId": "A"
@@ -1857,7 +1857,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "fc_bandwidth_write{instance=\"10.10.10.10:8000\",fc_name=~\"$fc_port_name\"} / 1048576",
+          "expr": "fc_bandwidth_write{fc_name=~\"$fc_port_name\"} / 1048576",
           "interval": "",
           "legendFormat": "{{fc_name}}",
           "refId": "A"
@@ -1948,7 +1948,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "eth_bandwitdh_read{instance=\"10.10.10.10:8000\",eth_name=~\"$eth_port_name\"} / 1048576",
+          "expr": "eth_bandwitdh_read{eth_name=~\"$eth_port_name\"} / 1048576",
           "interval": "",
           "legendFormat": "{{eth_name}}",
           "refId": "A"
@@ -2039,7 +2039,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "eth_bandwidth_write{instance=\"10.10.10.10:8000\",eth_name=~\"$eth_port_name\"} /1048576",
+          "expr": "eth_bandwidth_write{eth_name=~\"$eth_port_name\"} /1048576",
           "interval": "",
           "legendFormat": "{{eth_name}}",
           "refId": "A"
@@ -2061,7 +2061,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values({job=~\"powerstore_x\"},vol_name)",
+        "definition": "label_values({job=~\"powerstore-prometheus-exporter\"},vol_name)",
         "hide": 0,
         "includeAll": true,
         "label": "Volumes",
@@ -2069,7 +2069,7 @@
         "name": "volume_name",
         "options": [],
         "query": {
-          "query": "label_values({job=~\"powerstore_x\"},vol_name)",
+          "query": "label_values({job=~\"powerstore-prometheus-exporter\"},vol_name)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2084,7 +2084,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values({job=~\"powerstore_x\"},fc_name)",
+        "definition": "label_values({job=~\"powerstore-prometheus-exporter\"},fc_name)",
         "hide": 0,
         "includeAll": true,
         "label": "FC Ports",
@@ -2092,7 +2092,7 @@
         "name": "fc_port_name",
         "options": [],
         "query": {
-          "query": "label_values({job=~\"powerstore_x\"},fc_name)",
+          "query": "label_values({job=~\"powerstore-prometheus-exporter\"},fc_name)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2107,7 +2107,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values({job=~\"powerstore_x\"},eth_name)",
+        "definition": "label_values({job=~\"powerstore-prometheus-exporter\"},eth_name)",
         "hide": 0,
         "includeAll": true,
         "label": "Ethernet Ports",
@@ -2115,7 +2115,7 @@
         "name": "eth_port_name",
         "options": [],
         "query": {
-          "query": "label_values({job=~\"powerstore_x\"},eth_name)",
+          "query": "label_values({job=~\"powerstore-prometheus-exporter\"},eth_name)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2132,8 +2132,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "PowerStore details GITHUB",
-  "uid": "nLh8qIBnk",
+  "title": "PowerStore LND1",
+  "uid": "powerstore-lnd1",
   "version": 1,
   "weekStart": ""
 }
