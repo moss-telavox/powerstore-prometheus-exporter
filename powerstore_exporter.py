@@ -28,7 +28,7 @@ try:
 except TypeError:
     sys.exit(1)
 interval = "Five_Mins" #Five_Mins, One_Hour or One_Day. Don't use Twenty_Sec with this script, because it uses different schema
-headers = {"Content-type": "application/json"}
+headers = {"Range":"0-1000","Content-type": "application/json"}
 
 
 # Create Prometheus metrics
@@ -114,7 +114,6 @@ def appliance_perf_metrics():
     resp = requests.post(url, json=json_body, auth=(username, password), headers=headers, verify=False)
     if resp.status_code == 200:
         json_resp = json.loads(resp.content)
-        #print(json_resp)
         ### Update Prometheus metrics
         APPLIANCE_IOPS_READ.set(json_resp[-1]['avg_read_iops'])
         APPLIANCE_IOPS_WRITE.set(json_resp[-1]['avg_write_iops'])
@@ -177,6 +176,7 @@ def volume_cap_metrics():
 	# First we get a list of volumes. We get the "type" as well so that we can filter out snapshots
     url = baseurl + "/volume?select=id,name,type"
     resp_vols = requests.get(url, auth=(username, password), headers=headers, verify=False)
+
 
     # Now we are going to get the metrics for each individual volume
     url = baseurl + "/metrics/generate"
